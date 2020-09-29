@@ -25,6 +25,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# jwt- generate and decode JSON Web Tokens on our Rails server.
+gem 'jwt'
+
+# set Environment Variables for use in our JSON Web Token
+gem 'dotenv-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
