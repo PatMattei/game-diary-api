@@ -38,6 +38,14 @@ class GamesController < ApplicationController
     @game.destroy
   end
 
+  def search
+    games = find_game(params[:game])
+
+    unless games flash[:alert] = 'Game not found'
+      return render action: :index
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
