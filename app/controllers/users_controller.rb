@@ -12,12 +12,18 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: get_current_user
+    render json: get_current_user(include: :posts)
   end
+
+  def user_posts
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
+   
+    #render plain: {posts: @posts.inspect, user: @user.inspect} 
+   end
 
   # POST /users
   def create
-
     @user = User.new(user_params)
 
     if @user.save
