@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
 
-    render json: @games
+    render json: @games.to_json(include: :post)
   end
 
   # GET /games/1
@@ -38,6 +38,14 @@ class GamesController < ApplicationController
     @game.destroy
   end
 
+  def search
+    games = find_game(params[:game])
+
+    unless games flash[:alert] = 'Game not found'
+      return render action: :index
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
@@ -46,6 +54,6 @@ class GamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:api_ref, :entry, :post_id)
+      params.require(:game).permit(:api_ref, :entry, :post_id, :gui_id, :name, :img)
     end
 end
