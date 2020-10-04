@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :games
   resources :posts
   resources :users do
