@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 	  end
 	end
   
-	# PATCH/PUT /comments/1
+	# PATCH/PUT /comments/1 
 	def update
 	  if @comment.update(comment_params)
 		render json: @comment
