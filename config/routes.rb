@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :games
+  resources :comments
   resources :posts
   resources :users do
     collection do
