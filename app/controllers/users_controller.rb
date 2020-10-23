@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     render json: get_current_user.to_json(include: :posts)
   end
 
+
   def user_posts
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -66,7 +67,7 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password, :email)
+      params.require(:user).permit(:username, :password, :email, :avatar)
     end
 
     def payload(id, username) 
