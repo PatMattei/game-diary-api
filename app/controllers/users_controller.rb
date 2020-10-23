@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     render json: get_current_user.to_json(include: :posts)
   end
 
+
   def user_posts
     @user = User.find(params[:user_id])
     @posts = @user.posts
