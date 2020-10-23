@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   
 	# GET /comments/1
 	def show
-	  render json: @comment
+	  render json: @comment.to_json
 	end
   
 	# POST /comments
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 	  end
 	end
   
-	# PATCH/PUT /comments/1 
+	# PATCH/PUT /comments/1
 	def update
 	  if @comment.update(comment_params)
 		render json: @comment
